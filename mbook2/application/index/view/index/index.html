@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>书店首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/mbook/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+<script src="/mbook/public/static/JQM/jquery-1.11.1.min.js"></script>
+<script src="/mbook/public/static/JQM/jquery.mobile-1.4.5.min.js"></script>
+
+
+<style>
+body {
+  margin: 0 auto;
+  text-align:center;
+  padding:0;
+}
+div, ul, li, dl, dt, dd, h1, h2, h3, h4, p {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+a {
+  text-decoration:none;
+}
+
+.ui-bar-f
+{
+background-color:#00ffff;
+border:#00ffff 1px solid;
+}
+.ui-bar-f .ui-btn
+{
+background-color:#fff;
+}
+.ui-bar-f .ui-btn:hover
+{
+background-color:#fff;
+}
+.ui-body-f
+{
+background-color:#fff;
+}
+.ui-body-f .ui-btn
+{
+  background-color:#b0c4de;
+}
+.ui-body-f .ui-btn:hover
+{
+  background-color:#fff;
+}
+
+
+</style>
+
+</head>
+
+<body onload="shownext()">
+<div data-role="page">
+  <div data-role="header" data-theme="f">
+    <h1>欢迎访问我的书店</h1>
+    {if isset($username)} 
+    <a href="../user/edit" data-icon = "user" data-role="button" data-ajax="false">用户名：{$username}</a>
+   <a href="../user/loginout" data-icon = "delete" data-role="button" data-ajax="false">退出登录</a>
+   {else}
+    <a href="../user/login" data-role="button" data-icon="info" data-ajax="false">登陆</a>
+    {/if}
+</div>
+  <div data-role="content" data-theme="f" >
+    <div data-role="collapsible" data-collapsed="false" >
+      <h1 >今日特价</h1>
+      <div id="div1">
+         <a href='../book/booklist?sid={$tejiabook.s_id}' data-ajax="false"> <img src="/mbook/public/static/images/{$tejiabook.book_img}"/> 
+     
+    <br/>
+        {$tejiabook.book_name}<br/>
+        <span>￥{$tejiabook.book_newprice}</span> </a>
+      </div>
+    </div>
+    <div data-role="collapsible" data-collapsed="false">
+      <h1>快捷工具</h1>
+      <div class="ui-grid-b">
+        <div class="ui-block-a"> <a href="../book/booktype"  data-ajax="false"> <img  src="/mbook/public/static/images/neTool01.jpg" /><br/>
+          <span>图书分类</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-b"> <a href="#"> <img  src="/mbook/public/static/images/neTool02.jpg"  /><br/>
+          <span>联系我们</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-c"> <a href="../user/reg" data-ajax="false"> <img  src="/mbook/public/static/images/neTool03.jpg" alt="yhzc" /><br/>
+          <span>用户注册</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-a"> <a href="#"> <img  src="/mbook/public/static/images/neTool04.jpg" alt="sdgg" /><br/>
+          <span>书店公告</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-b"> <a href="#"> <img  src="/mbook/public/static/images/neTool05.jpg" alt="bzzx" /><br/>
+          <span>帮助中心</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-c"> <a href="#"> <img  src="/mbook/public/static/images/neTool06.jpg" alt="yjfk" /><br/>
+          <span>意见反馈</span><br/>
+          <br/>
+          </a> </div>
+      </div>
+    </div>
+  </div>
+  <div data-role="footer" data-theme="f">
+    <h1>机电书店</h1>
+  </div>
+</div>
+ 
+</body>
+</html>

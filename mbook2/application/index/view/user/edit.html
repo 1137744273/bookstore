@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>信息修改</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/mbook/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+<script src="/mbook/public/static/JQM/jquery-1.11.1.min.js"></script>
+<script src="/mbook/public/static/JQM/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+<div data-role="page" id="page1">
+  <div data-role="header"> 
+    <a href="../Index/index.html" data-ajax="false" data-role="button" data-icon="home">首页</a>
+    <a href="../user/newpwd.html" data-role="button" data-icon="info" data-ajax="false">修改密码</a>
+    <h3 id="edit"> 信息修改 </h3>
+  </div>
+  <div data-role="content">
+    <form name="RegForm" method="post" action="editdo" data-ajax="false">
+      <div data-role="fieldcontain">
+        <label for="username"> 用户名 </label>
+        <input name="username" id="username"  value="{$data.user_name}" type="text" required>
+      </div>
+      <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup" data-type="horizontal"  >
+        <legend>性别</legend>
+        <label for="male">男</label>
+        <input type="radio" name="gender" id="male" value="男"   {if $data.user_sex=='男'} checked="checked"{/if}>
+
+        <label for="female">女</label>
+        <input type="radio" name="gender" id="female" value="女"  {if $data.user_sex=='女'} checked="checked"{/if}>
+      </fieldset>
+      </div>
+      <div data-role="fieldcontain">
+        <label for="email"> 邮箱 </label>
+        <input name="email" id="email"  value="{$data.user_email}" type="email">
+      </div>
+      <div data-role="fieldcontain">
+        <label for="yb"> 邮政编码 </label>
+        <input name="yb" id="yb"  value="{$data.user_yb}" type="text">
+      </div>
+            <div data-role="fieldcontain">
+        <label for="tel"> 手机号码 </label>
+        <input name="tel" id="tel"  value="{$data.user_tel}" type="text">
+      </div>
+      <div style="text-align: center;">
+        <input data-inline="true" type="submit" name="submit" value="提交"  />
+        <a data-inline="true"  data-role="button" data-ajax="false" href="../Index/index"> 取消 </a> 
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

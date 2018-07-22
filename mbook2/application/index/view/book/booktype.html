@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图书分类</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/mbook/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+<script src="/mbook/public/static/JQM/jquery-1.11.1.min.js"></script>
+<script src="/mbook/public/static/JQM/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+<div data-role="page">
+  <div data-role="header"> <a href="../index/index" data-ajax="false" data-role="button" data-icon="home">首页</a>
+    <h1>图书分类</h1>
+  </div>
+  <div data-role="content">
+    <div data-role="collapsible-set">
+    	{volist name="bb" id='b'} <!--读取大类-->
+			<div data-role="collapsible" data-collapsed="true">
+			  	<h1>{$b.b_name}</h1>
+ 				<ul data-role="listview"  data-inset="false">
+  					{foreach name='ss' item='s'} <!--读取小类-->
+    					{if condition="$b.b_id == $s.b_id"} <!--条件判断-->
+				    		<li><a data-ajax="false" href="booklist?sid={$s.s_id}"><span>{$s.s_name}</span></a></li>
+     					{/if}
+  					{/foreach}
+				</ul>
+			</div>
+		{/volist}
+    </div>
+  </div>
+  <div data-role="footer">
+    <h1>机电书店</h1>
+  </div>
+</div>
+</body>
+</html>
